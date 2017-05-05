@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'Hello world!'
+  render :html, :index
 end

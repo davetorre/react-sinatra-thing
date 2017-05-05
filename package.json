@@ -1,0 +1,21 @@
+{
+  "name": "react-sinatra-thing",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "^2.5.0"
+  },
+  "engines": {
+    "node": "7.4.0"
+  },
+  "scripts": {
+    "app": "node_modules/.bin/webpack && ruby app.rb"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
