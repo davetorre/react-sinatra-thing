@@ -10,7 +10,7 @@
     "node": "7.4.0"
   },
   "scripts": {
-    "app": "node_modules/.bin/webpack && ruby app.rb"
+    "webpack": "node_modules/.bin/webpack --watch"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

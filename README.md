@@ -15,7 +15,8 @@ brew install node
 npm install
 ```
 
-## Run
+## Run locally
 ```
-npm run app
+ruby app.rb
+npm run webpack
 ```
