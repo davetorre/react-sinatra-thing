@@ -1,9 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+const insertHtml = (elementId, html) => {
+  const element = document.getElementById(elementId);
+  element.innerHTML = '';
+  element.insertAdjacentHTML('afterbegin', html);
+};
 
-import NoteList from './note-list';
-import NoteDetail from './note-detail';
+const noteItem = (note) => {
+  return `<li class="note-item">${note.title}</li>`;
+};
 
+const noteList = (notes) => {
+  var items = notes.reduce((acc, note) => {
+    return acc + noteItem(note);
+  }, '');
+  return `
+    <h1>Notes</h1>
+    <ul>${items}</ul>
+  `;
+};
+
+const noteDetail = (note) => {
+  return `
+    <textarea>${note.content}</textarea>
+  `;
+};
 
 var notes = [
   {
@@ -23,12 +42,11 @@ var notes = [
   }
 ];
 
-ReactDOM.render(
-  <div>
-    <h1>Notes</h1>
-    <NoteList notes={notes} />
-    <NoteDetail content={notes[0].content} />
-  </div>
-  ,
-  document.getElementById('root')
-);
+insertHtml('note-list', noteList(notes));
+insertHtml('note-detail', noteDetail(notes[0]));
+var noteItemEls = document.getElementsByClassName('note-item');
+[].forEach.call(noteItemEls, (el, index) => {
+  el.addEventListener('click', () => {
+    insertHtml('note-detail', noteDetail(notes[index]));
+  });
+});
